@@ -50,12 +50,14 @@ interface ModalNewHabitProps {
 
 export default function ModalNewHabit({ onClose }: ModalNewHabitProps) {
   return (
-    <div className="rounded-md bg-[#181818] text-white p-10 fixed top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%] z-50 w-[500px] ">
-      <span className="block h-8 text-3xl" onClick={onClose}>
-        <FaTimes className="float-right" />
-      </span>
+    <div className="rounded-md bg-[#181818] text-white p-10 fixed top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%] z-50 w-[80%] max-h-[90%] md:w-[500px] ">
+      <div>
+        <span className="block h-8 text-3xl" onClick={onClose}>
+          <FaTimes className="float-right" />
+        </span>
 
-      <h2 className="text-center font-bold text-3xl pb-4">Nuevo Hábito</h2>
+        <h2 className="text-center font-bold text-3xl pb-4">Nuevo Hábito</h2>
+      </div>
 
       <form className="flex  flex-col gap-5">
         <input
@@ -81,7 +83,7 @@ export default function ModalNewHabit({ onClose }: ModalNewHabitProps) {
           <option value="domingo"> Dom </option>
         </select>
         <span>Icono</span>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
+        <div className="grid grid-cols-7 gap-2">
           {Object.entries(icons).map(([iconName, icon]) => (
             <button
               key={iconName}

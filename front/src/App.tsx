@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Layout from "./Layout/Layout";
 // import Tracker from "./components/Tracker";
 
 //TODO:
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container m-auto">{/* s<Tracker /> */}</div>
+      <Layout></Layout>
     </>
   );
 }

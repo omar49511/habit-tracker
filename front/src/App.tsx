@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar";
 import Layout from "./Layout/Layout";
+import LayoutApp from "./Layout/LayoutApp";
 // import Tracker from "./components/Tracker";
 
 //TODO:
@@ -21,12 +21,8 @@ import Layout from "./Layout/Layout";
 */
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Layout></Layout>
-    </>
-  );
+  const user: boolean = false;
+  return <>{user ? <LayoutApp /> : <Layout />}</>;
 }
 
 export default App;

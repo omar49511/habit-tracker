@@ -1,11 +1,9 @@
 import Routers from "../routes/Routers";
 
-function Layout() {
+export default function Layout() {
   return (
     <main className=" ">
       <Routers />
     </main>
   );
 }
-
-export default Layout;

@@ -1,5 +1,3 @@
-import Layout from "./Layout/Layout";
-import LayoutApp from "./Layout/LayoutApp";
 // import Tracker from "./components/Tracker";
 
 //TODO:
@@ -20,9 +18,29 @@ import LayoutApp from "./Layout/LayoutApp";
 
 */
 
-function App() {
-  const user: boolean = false;
-  return <>{user ? <LayoutApp /> : <Layout />}</>;
-}
+import { Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/login";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
 
-export default App;
+export default function App() {
+  // Aquí podrías implementar la lógica para verificar si el usuario está autenticado
+  // Por ejemplo, podrías revisar si hay un token de autenticación en el almacenamiento local
+  const isAuthenticated = true; // Supongamos que el usuario no está autenticado
+
+  return (
+    <>
+      {isAuthenticated && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {isAuthenticated ? (
+          <Route path="/home" element={<Home />} />
+        ) : (
+          <Navigate to="/" />
+        )}
+      </Routes>
+    </>
+  );
+}

@@ -1,14 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/login";
 import Home from "../pages/Home";
-import Profile from "../pages/Profile";
+import Register from "../pages/Register";
 
 export default function Routers() {
+  const isAuthenticated = false;
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      {isAuthenticated ? (
+        <Route path="/home" element={<Home />} />
+      ) : (
+        <Navigate to="/" />
+      )}
     </Routes>
   );
 }

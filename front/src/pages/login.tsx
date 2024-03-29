@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
+import { supabase } from "../supabase/supabase.config";
 export default function Login() {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    try {
+      const result = await supabase.auth.signInWithOAuth({
+        provider: "github",
+      });
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <section className="py-16 px-4">
       <div className="flex flex-col items-center justify-center">
@@ -30,6 +43,7 @@ export default function Login() {
             </p>
           </button>
           <button
+            onClick={handleSubmit}
             aria-label="Continue with github"
             role="button"
             className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"

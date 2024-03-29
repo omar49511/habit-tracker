@@ -1,9 +1,15 @@
-import Routers from "../routes/Routers";
+import Navbar from "../components/Navbar";
 
-export default function Layout() {
+interface LayoutProps {
+  children: React.ReactNode;
+  showNavbar: boolean;
+}
+
+export default function Layout({ children, showNavbar }: LayoutProps) {
   return (
     <main className=" ">
-      <Routers />
+      {showNavbar && <Navbar />}
+      {children}
     </main>
   );
 }

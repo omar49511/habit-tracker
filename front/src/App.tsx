@@ -18,13 +18,26 @@
 
 */
 
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/login";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
+import { useEffect } from "react";
+import { supabase } from "./supabase/supabase.config";
 
 export default function App() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (!session) {
+        navigate("/");
+      } else {
+        navigate("/home");
+      }
+      console.log(event, session);
+    });
+  }, []);
   // Aquí podrías implementar la lógica para verificar si el usuario está autenticado
   // Por ejemplo, podrías revisar si hay un token de autenticación en el almacenamiento local
   const isAuthenticated = true; // Supongamos que el usuario no está autenticado

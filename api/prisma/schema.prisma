@@ -15,8 +15,37 @@ datasource db {
 }
         
 model Habit {
-  id Int @id @default(autoincrement())
-  name String
-  description String
-  color String
-}    
+  id                Int        @id @default(autoincrement())
+  name              String
+  description       String
+  streakGoal        StreakGoal?
+  streakFrequency   Int?
+  reminders         Reminder?
+  completionsPerDay Int?
+  icon              String
+  color             String
+}
+
+enum StreakGoal {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+model Reminder {
+  id          Int      @id @default(autoincrement())
+  habit       Habit    @relation(fields: [habitId], references: [id]) 
+  habitId     Int      @unique
+  daysOfWeek  DaysOfWeek[]
+  timeOfDay   DateTime
+}
+
+enum DaysOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}

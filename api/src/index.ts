@@ -1,5 +1,7 @@
-import app from "./app";
+import { createApp } from "./app";
 import habitsRoutes from "./routes/habits.routes";
+
+const app = createApp();
 
 app.use("/api", habitsRoutes);
 

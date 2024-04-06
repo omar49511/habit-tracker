@@ -1,7 +1,10 @@
 import { createApp } from "./app";
 import habitsRoutes from "./routes/habits.routes";
+const cors = require("cors");
 
 const app = createApp();
+
+app.use(cors());
 
 app.use("/api", habitsRoutes);
 

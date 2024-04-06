@@ -20,7 +20,12 @@ export default function Home() {
     // y agregar el botón de agregar hábitos
 
     <div>
-      <button onClick={() => supabase.auth.signOut()}>signOut</button>
+      <button
+        className="bg-white py-2 px-4 rounded"
+        onClick={() => supabase.auth.signOut()}
+      >
+        signOut
+      </button>
       <HabitsList />
     </div>
   );

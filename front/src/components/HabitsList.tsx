@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HeatMap from "./HeatMap";
 
 interface Habit {
   id: number;
@@ -32,13 +33,11 @@ function HabitsList() {
     <div>
       <h2>Lista de Hábitos</h2>
       <ul>
-        {habits.map((habit) => (
-          <li key={habit.id}>
-            <h3>{habit.name}</h3>
-            <p>{habit.description}</p>
-            <p>Color: {habit.color}</p>
-            {/* Renderizar otros datos de hábito según sea necesario */}
-          </li>
+        {habits.map((habit, index) => (
+          <div key={index}>
+            <HeatMap color={habit.color} />
+            <p>{habit.color}</p>
+          </div>
         ))}
       </ul>
     </div>

@@ -32,14 +32,12 @@ function HabitsList() {
   return (
     <div>
       <h2>Lista de Hábitos</h2>
-      <ul>
-        {habits.map((habit, index) => (
-          <div key={index}>
-            <HeatMap color={habit.color} />
-            <p>{habit.color}</p>
-          </div>
-        ))}
-      </ul>
+      {habits.map((habit, index) => (
+        <div key={index}>
+          <HeatMap color={habit.color} />
+          <p>{habit.color}</p>
+        </div>
+      ))}
     </div>
   );
 }

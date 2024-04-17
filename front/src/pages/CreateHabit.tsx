@@ -7,7 +7,7 @@ interface MyFormValues {
 export default function CreateHabit() {
   const initialValues: MyFormValues = { firstName: "" };
   return (
-    <div>
+    <div className="mt-96 bg-white">
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { supabase } from "../supabase/supabase.config";
 import { useNavigate } from "react-router-dom";
+import CreateHabit from "./CreateHabit";
 // import HabitsList from "../components/HabitsList";
 import HeatMap from "../components/HeatMap";
 
@@ -27,6 +28,7 @@ export default function Home() {
       >
         signOut
       </button>
+      <CreateHabit></CreateHabit>
       <HeatMap />
     </div>
   );

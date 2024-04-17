@@ -23,7 +23,7 @@ export default function Login() {
           <p className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">
             Dont have account?{" "}
             <Link
-              to="/signup"
+              to="/register"
               className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none cursor-pointer"
             >
               Sign up here

@@ -1,5 +1,11 @@
 import { Router, Request, Response } from "express";
-import { PrismaClient, Habit, StreakGoal, DaysOfWeek } from "@prisma/client";
+import {
+  PrismaClient,
+  Habit,
+  StreakGoal,
+  DaysOfWeek,
+  HabitCompletion,
+} from "@prisma/client";
 
 const router = Router();
 const prisma = new PrismaClient();
@@ -82,6 +88,28 @@ router.post("/habits", async (req: Request, res: Response) => {
     res.status(500).json("internal server error");
   }
 });
+
+// Nueva ruta para registrar la completación de un hábito
+router.post(
+  "/habits/:habitId/completions",
+  async (req: Request, res: Response) => {
+    const habitId = parseInt(req.params.habitId);
+    const { date } = req.body;
+
+    try {
+      const completion = await prisma.habitCompletion.create({
+        data: {
+          date: new Date(date),
+          habitId: habitId,
+        },
+      });
+      res.json(completion);
+    } catch (error) {
+      console.error("Error al registrar completación de hábito:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+);
 
 // router.post("/habits", async (req: Request, res: Response) => {
 //   try {

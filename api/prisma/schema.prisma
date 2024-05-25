@@ -24,6 +24,14 @@ model Habit {
   completionsPerDay Int?
   icon              String
   color             String
+  completions       HabitCompletion[]
+}
+
+model HabitCompletion {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  habitId   Int
+  habit     Habit    @relation(fields: [habitId], references: [id])
 }
 
 enum StreakGoal {

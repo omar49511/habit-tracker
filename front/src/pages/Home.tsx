@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { FaCheck, FaShoppingBag } from "react-icons/fa";
 import { supabase } from "../supabase/supabase.config";
 import { useNavigate } from "react-router-dom";
 import CreateHabit from "./CreateHabit";
@@ -136,15 +137,22 @@ export default function Home() {
         signOut
       </button>
       <CreateHabit></CreateHabit>
-      <div className="flex">
-        <span className="flex flex-col justify-around py-2 text-gray-300 text-xs text-right pr-3">
-          <span>Mon</span>
-          <span>Wed</span>
-          <span>Fri</span>
-        </span>
+      <div className="bg-cyan-900 m-10">
+        <div className="p-4 bg-amber-600 w-">
+          <FaShoppingBag />
+        </div>
+        <h1 className="text-white text-3xl">titulo del habito</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+          aliquam!
+        </p>
+        {/* hay que hacer un componente para este boton ya que debe tener 2 funciones solo chech y contar cuantos se han completado*/}
+        <button>
+          <FaCheck />
+        </button>
         <HeatMap
           startDate={"2024-09-01"}
-          endDate={"2025-12-13"}
+          endDate={"2025-12-31"}
           dataValues={userActivity}
         />
       </div>

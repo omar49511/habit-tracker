@@ -57,7 +57,7 @@ const HeatMap: React.FC<HeatMapProps> = ({
   return (
     <div
       className="grid grid-flow-col gap-1"
-      style={{ gridTemplateRows: "repeat(7, minmax(0, 1fr)" }}
+      style={{ gridTemplateRows: "repeat(7, minmax(0, 1fr))" }}
     >
       {calenderGrid.map((day) => {
         const activityCount =
@@ -68,7 +68,7 @@ const HeatMap: React.FC<HeatMapProps> = ({
           <a
             key={day}
             href={`/posts?date=${day}`}
-            className="w-4 h-4 rounded cursor-pointer bg-gray-400"
+            className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 rounded cursor-pointer"
             title={`${activityCount} Posts on ${day}`}
             style={{
               backgroundColor: activityCount === 0 ? "#ffffff10" : color,

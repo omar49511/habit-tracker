@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { FaCheck, FaShoppingBag } from "react-icons/fa";
 import { supabase } from "../supabase/supabase.config";
 import { useNavigate } from "react-router-dom";
-import CreateHabit from "./CreateHabit";
 // import HabitsList from "../components/HabitsList";
 import HeatMap from "../components/HeatMap";
 
@@ -136,7 +135,7 @@ export default function Home() {
       >
         signOut
       </button>
-      <CreateHabit></CreateHabit>
+
       <div className="bg-cyan-900 m-10">
         <div className="p-4 bg-amber-600 w-">
           <FaShoppingBag />

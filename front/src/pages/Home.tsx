@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { FaCheck, FaShoppingBag } from "react-icons/fa";
 import { supabase } from "../supabase/supabase.config";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 // import HabitsList from "../components/HabitsList";
 import HeatMap from "../components/HeatMap";
 
@@ -128,7 +128,10 @@ export default function Home() {
     // no olvides agregar el botón de logout
     // y agregar el botón de agregar hábitos
 
-    <div>
+    <div
+      className=""
+      style={{ width: "min(90%, 1000px)", marginInline: "auto" }}
+    >
       <button
         className="bg-white py-2 px-4 rounded"
         onClick={() => supabase.auth.signOut()}
@@ -136,25 +139,26 @@ export default function Home() {
         signOut
       </button>
 
-      <div className="bg-cyan-900 m-10">
-        <div className="p-4 bg-amber-600 w-">
-          <FaShoppingBag />
-        </div>
-        <h1 className="text-white text-3xl">titulo del habito</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          aliquam!
-        </p>
-        {/* hay que hacer un componente para este boton ya que debe tener 2 funciones solo chech y contar cuantos se han completado*/}
-        <button>
-          <FaCheck />
-        </button>
-        <HeatMap
-          startDate={"2024-09-01"}
-          endDate={"2025-12-31"}
-          dataValues={userActivity}
-        />
-      </div>
+      <HeatMap
+        startDate={"2024-09-01"}
+        endDate={"2025-12-31"}
+        dataValues={userActivity}
+      />
+      <HeatMap
+        startDate={"2024-09-01"}
+        endDate={"2025-12-31"}
+        dataValues={userActivity}
+      />
+      <HeatMap
+        startDate={"2024-09-01"}
+        endDate={"2025-12-31"}
+        dataValues={userActivity}
+      />
+      <HeatMap
+        startDate={"2024-09-01"}
+        endDate={"2025-12-31"}
+        dataValues={userActivity}
+      />
     </div>
   );
 }

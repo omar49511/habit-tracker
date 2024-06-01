@@ -140,24 +140,11 @@ export default function Home() {
       </button>
 
       <HeatMap
-        startDate={"2024-09-01"}
-        endDate={"2025-12-31"}
+        startDate={"2023-05-31"}
+        endDate={"2024-05-31"}
         dataValues={userActivity}
-      />
-      <HeatMap
-        startDate={"2024-09-01"}
-        endDate={"2025-12-31"}
-        dataValues={userActivity}
-      />
-      <HeatMap
-        startDate={"2024-09-01"}
-        endDate={"2025-12-31"}
-        dataValues={userActivity}
-      />
-      <HeatMap
-        startDate={"2024-09-01"}
-        endDate={"2025-12-31"}
-        dataValues={userActivity}
+        name="hola"
+        description="hola este es un mensaje"
       />
     </div>
   );

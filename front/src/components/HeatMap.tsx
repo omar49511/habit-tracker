@@ -10,12 +10,16 @@ interface HeatMapProps {
   startDate: string;
   endDate: string;
   dataValues: DataValue[];
+  name: string;
+  description: string;
 }
 
 const HeatMap: React.FC<HeatMapProps> = ({
   startDate,
   endDate,
   dataValues,
+  name,
+  description,
 }) => {
   const startingDate = new Date(startDate);
   const endingDate = new Date(endDate);
@@ -64,8 +68,8 @@ const HeatMap: React.FC<HeatMapProps> = ({
               <FaShoppingBag />
             </div>
             <div className="ml-4">
-              <h1 className="text-white text-3xl">title</h1>
-              <p className="text-white">descriptio</p>
+              <h1 className="text-white text-3xl">{name}</h1>
+              <p className="text-white">{description}</p>
             </div>
           </div>
           <button className="p-4 bg-[#3b3c3f] text-white flex items-center rounded-md">
